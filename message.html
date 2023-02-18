@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message</title>
+    <link rel="stylesheet" href="#" />
+    <style>
+
+          @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&display=swap');
+          *{
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+            font-family: 'Noto Sans', sans-serif;
+          }
+          body{
+            height: 100vh;
+            width: 100%;
+            background:#91a4ba;
+            background:linear-gradient( rgba(0,0,0,0.5),#010e0e), url(img/title.jpeg);
+            background-size: cover;
+            background-position: center;
+          }
+
+          .container,
+          .container-fluid
+          {
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            display: block;
+            background: #fff;
+            width: 410px;
+            padding: 30px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            border-radius: 8px;
+          }
+
+          .container .text{
+            font-size: 35px;
+            font-weight: 400;
+            text-align: center;
+            color:#000000;
+          }
+
+          .container form{
+          margin-top: -20px;
+          }
+
+          .container form .data{
+            height: 45px;
+            width: 100%;
+            margin: 40px 0;
+          }
+
+          form .data label{
+            font-size: 18px;
+          }
+
+
+          form .data input{
+            height: 100%;
+            width: 100%;
+            padding-left: 10px;
+            font-size: 17px;
+            border: 1px solid silver;
+          }
+
+          form .data textarea{
+            width: 100%;
+            padding-left: 10px;
+            font-size: 17px;
+            border: 1px solid silver;
+          }
+
+          form .data input:focus{
+            border-color: #5199E4;
+            border-bottom-width: 2px;
+          }
+          form .data textarea:focus{
+            border-color: #5199E4;
+            border-bottom-width: 2px;
+          }
+
+
+
+          form .btn{
+            margin: 30px 0;
+            height: 60px;
+            width: 100%;
+            padding-top: 20PX;
+          }
+
+          form .btn button{
+            height: 100%;
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff; 
+            background:#000000;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+          }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text">Send Message</div>
+
+      <form onsubmit="sendEmail(); reset(); return false;">
+
+        <div class="data">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required>
+          </div>
+
+        <div class="data">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="emaill" required>
+        </div>
+
+        <div class="data">
+          <label for="password">Message</label>
+          <textarea id="message" rows="4" required></textarea>
+        </div><br> 
+
+        <div class="btn">
+          <button type="submit">SEND</button>
+        </div>
+
+        
+      </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail(){
+        try{
+          Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "sakeerahamed.ati@gmail.com",
+            Password : '68108C5ADC0D529C8D7AD035D1C823059934',
+            From : 'sakeerahamed.ati@gmail.com',
+            To : document.getElementById("emaill").value,
+            Subject : "Message from Visit Srilanka",
+            Body : "Name :" + document.getElementById("name").value
+                +"<br> E-mail :"+ document.getElementById("emaill").value
+                +"<br> Message :"+ document.getElementById("message").value
+        }).then(function (message) {
+          alert("message sent successfully")
+        });
+        }catch(e){
+          console.log(e);
+        }
+      }
+      // Password : '68108C5ADC0D529C8D7AD035D1C823059934', 
+    </script>
+  </body>
+</html>

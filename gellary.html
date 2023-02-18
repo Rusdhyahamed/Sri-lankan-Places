@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gellary</title>
+  <link rel="stylesheet" href="##">
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+      }
+        
+      .heading{
+        
+        margin-top: 20px;
+        padding-bottom: 50px;
+        align-items: center;
+        text-align: center;
+        font-family: sans-serif;
+        
+        }
+
+      .heading h3{
+          font-size: 3em;
+          font-weight: bolder;
+          padding-bottom: 10px;
+          
+          border-bottom: 3px solid #222;
+        }
+        
+      .heading h3 span{
+          font-weight: 100;
+        }
+
+      .container{
+        
+        background-color: #6a84bd;
+        display: grid;
+        grid-template-columns: repeat(4,220px);
+        justify-content: center;
+        align-content: center;
+        gap: 20px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        width: 100%;
+      }
+      
+      
+      .img{
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        object-position: center center;
+        background-color: #fff;
+        padding: 5px;
+        border-radius: 3px;
+        
+      }
+      
+      #modal{
+        background-color: rgba(255,255,255,0.5);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(2px);
+        display: none;
+      }
+      
+      
+      #modal.active{
+        display: grid;
+        place-items: center;
+      }
+      
+      #img{
+        max-width: 100%;
+        max-height: 70%;
+        border: 4px solid white;
+        box-shadow: 1px 3px 20px rgba(0,0,0,0.5);
+      }
+  </style>
+</head>
+<body>
+  <div class="heading">
+    <h3>Photo <span>Gallery</span></h3>
+    </div>
+  <div class="container">
+    
+      <img src="images/1.jpg" class="img">
+      <img src="images/2.jpeg" class="img">
+      <img src="images/3.jpg" class="img">
+      <img src="images/4.jpg" class="img">
+      <img src="images/5.jpg" class="img">
+      <img src="images/6.jpg" class="img">
+      <img src="images/7.jpg" class="img">
+      <img src="images/8.jpg" class="img">
+      <img src="images/9.jpg" class="img">
+      <img src="images/10.jpg" class="img">
+      
+      <img src="images/12.jpeg" class="img">
+      <img src="images/13.jpg" class="img">
+      <img src="images/14.jpg" class="img">
+      <img src="images/15.jpg" class="img">
+      <img src="images/16.jpg" class="img">
+      <img src="images/17.jpg" class="img">
+      <img src="images/18.jpg" class="img">
+      <img src="images/19.jpg" class="img">
+      <img src="images/20.jpg" class="img">
+      <img src="images/21.jpg" class="img">
+      <img src="images/22.jpg" class="img">
+      <img src="images/23.jpg" class="img">
+      <img src="images/24.jpg" class="img">
+      <img src="images/25.jpg" class="img">
+      <img src="images/26.jpg" class="img">
+      <img src="images/27.jpg" class="img">
+      <img src="images/28.jpg" class="img">
+      <img src="images/29.jpg" class="img">
+      <img src="images/30.jpg" class="img">
+      <img src="images/31.jpg" class="img">
+      <img src="images/32.jpg" class="img">
+      <img src="images/33.jpg" class="img">
+      <img src="images/34.jpg" class="img">
+      <img src="images/35.jpg" class="img">
+      <img src="images/36.jpg" class="img">
+      <img src="images/37.jpg" class="img">
+      <img src="images/38.jpg" class="img">
+      <img src="images/39.jpg" class="img">
+      <img src="images/40.jpg" class="img">
+      <img src="images/41.jpg" class="img">
+      <img src="images/42.jpg" class="img">
+      <img src="images/43.jpg" class="img">
+      <img src="images/44.jpg" class="img">
+      <img src="images/45.jpg" class="img">
+      <img src="images/46.jpg" class="img">
+      <img src="images/47.jpg" class="img">
+      <img src="images/48.jpg" class="img">
+      <img src="images/13.jpg" class="img">
+      <img src="images/49.jpg" class="img">
+      <img src="images/50.jpg" class="img">
+      <img src="images/51.jpg" class="img">
+      <img src="images/52.jpg" class="img">
+
+
+      
+     
+  </div>
+  <script>
+            const modal=document.createElement('div');
+        modal.id='modal';
+        document.body.appendChild(modal);
+
+        const images=document.querySelectorAll('.img');
+
+
+        images.forEach(image=>{
+        image.addEventListener('click',()=>{
+            modal.classList.add('active');
+            const img=document.createElement('img');
+            img.src=image.src;
+            img.id="img";
+            while(modal.firstChild){
+            modal.removeChild(modal.firstChild);
+            }
+            modal.append(img);
+        });
+        });
+
+        modal.addEventListener('click',()=>{
+        modal.classList.remove('active');
+        });
+  </script>
+</body>
+</html>
